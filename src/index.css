@@ -1,0 +1,155 @@
+/* Google Fonts for Ultra Premium Traditional Wedding Invitation */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary-maroon: #6B0010;
+  --color-primary-darkmaroon: #3B0007;
+  --color-gold-light: #FCE6A4;
+  --color-gold-med: #D4AF37;
+  --color-gold-dark: #AA771C;
+  --color-cream-bg: #FAF7EE;
+  --color-cream-card: #F5EFEB;
+  --color-luxury-red: #8B0000;
+  --font-cinzel: 'Cinzel', serif;
+  --font-cinzel-dec: 'Cinzel Decorative', serif;
+  --font-vibes: 'Great Vibes', cursive;
+  --font-yatra: 'Yatra One', sans-serif;
+  --font-tiro: 'Tiro Devanagari Marathi', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+  --animate-flicker: flicker 1.5s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-shimmer: shimmer 3s infinite linear;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; transform: scale(0.98); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+  100% { opacity: 1.0; transform: scale(1.02); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8)); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Custom Luxury Gradients & Layout Utilities */
+@utility text-gold-gradient {
+  background: linear-gradient(
+    to right,
+    #AA771C 0%,
+    #D4AF37 22%,
+    #FCE6A4 45%,
+    #D4AF37 68%,
+    #AA771C 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #AA771C 0%,
+    #D4AF37 25%,
+    #FCE6A4 50%,
+    #D4AF37 75%,
+    #AA771C 100%
+  );
+}
+
+@utility bg-maroon-gradient {
+  background: radial-gradient(
+    circle at center,
+    #6B0010 0%,
+    #4A0008 60%,
+    #2E0004 100%
+  );
+}
+
+@utility bg-red-velvet {
+  background: linear-gradient(
+    135deg,
+    #4A0005 0%,
+    #6B0010 50%,
+    #4A0005 100%
+  );
+}
+
+@utility bg-paper-texture {
+  background-color: #FAF7EE;
+  background-image: radial-gradient(#FAF7EE 60%, #F5EFEB 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+@utility glass-card {
+  background: rgba(107, 0, 16, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@utility glass-card-light {
+  background: rgba(245, 239, 235, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px 0 rgba(107, 0, 16, 0.08);
+}
+
+@utility border-gold-shimmer {
+  border: 1px solid transparent;
+  background: linear-gradient(#FAF7EE, #FAF7EE) padding-box,
+              linear-gradient(to right, #AA771C, #D4AF37, #FCE6A4, #D4AF37, #AA771C) border-box;
+}
+
+@utility border-gold-shimmer-maroon {
+  border: 1px solid transparent;
+  background: linear-gradient(#4A0008, #2E0004) padding-box,
+              linear-gradient(to right, #AA771C, #D4AF37, #FCE6A4, #D4AF37, #AA771C) border-box;
+}
+
+@utility gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #3B0007;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#AA771C, #D4AF37, #AA771C);
+  border-radius: 3px;
+}
+
+/* Base Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #3B0007;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: #FAF7EE;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Swiper Customize for premium slide transition */
+.swiper-button-next, .swiper-button-prev {
+  color: #D4AF37 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #D4AF37 !important;
+}
