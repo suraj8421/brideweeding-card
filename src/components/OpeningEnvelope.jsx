@@ -7,6 +7,31 @@ export const OpeningEnvelope = ({ onComplete }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDone, setIsDone] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) return;
+
+    // Automatically open the envelope after 1.8 seconds (so they can see it)
+    const autoOpenTimer = setTimeout(() => {
+      handleOpen();
+    }, 1800);
+
+    // Also trigger opening if the user attempts to scroll or swipe
+    const handleGesture = () => {
+      handleOpen();
+    };
+
+    window.addEventListener("wheel", handleGesture, { passive: true });
+    window.addEventListener("touchmove", handleGesture, { passive: true });
+    window.addEventListener("scroll", handleGesture, { passive: true });
+
+    return () => {
+      clearTimeout(autoOpenTimer);
+      window.removeEventListener("wheel", handleGesture);
+      window.removeEventListener("touchmove", handleGesture);
+      window.removeEventListener("scroll", handleGesture);
+    };
+  }, [isOpen]);
+
   const handleOpen = () => {
     if (isOpen) return;
     setIsOpen(true);
@@ -65,12 +90,12 @@ export const OpeningEnvelope = ({ onComplete }) => {
 
           <div className="text-center z-10 w-full max-w-[480px]">
             {/* Guide Text */}
-            <p className="font-cinzel text-xs md:text-sm tracking-widest text-gold-light/70 uppercase mb-8 animate-pulse">
-              {!isOpen ? "Touch the Wax Seal to Open Invitation" : "Opening Invitation..."}
+            <p className="font-yatra text-xs md:text-sm tracking-widest text-gold-light/70 uppercase mb-8 animate-pulse">
+              {!isOpen ? "निमंत्रण पत्रिका उघडण्यासाठी स्पर्श करा" : "निमंत्रण पत्रिका उघडत आहे..."}
             </p>
 
             {/* 3D Envelope Wrapper */}
-            <div 
+            <div
               onClick={handleOpen}
               className="relative w-full aspect-[4/3] bg-cream-card/95 rounded-lg border border-gold-med/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-center cursor-pointer select-none overflow-visible group"
               style={{ perspective: "1000px" }}
@@ -80,7 +105,7 @@ export const OpeningEnvelope = ({ onComplete }) => {
 
               {/* Envelope Body Folds */}
               {/* Bottom flap shape */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-lg pointer-events-none border-b-4 border-gold-med/40 shadow-inner z-10"
                 style={{
                   clipPath: "polygon(0% 100%, 50% 60%, 100% 100%)",
@@ -89,14 +114,14 @@ export const OpeningEnvelope = ({ onComplete }) => {
               />
 
               {/* Side flaps shapes */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-lg pointer-events-none border-l-2 border-r-2 border-gold-med/20 z-10"
                 style={{
                   clipPath: "polygon(0% 0%, 40% 50%, 0% 100%)",
                   background: "linear-gradient(to right, #F5EFEB, #E5D5CB)",
                 }}
               />
-              <div 
+              <div
                 className="absolute inset-0 rounded-lg pointer-events-none border-l-2 border-r-2 border-gold-med/20 z-10"
                 style={{
                   clipPath: "polygon(100% 0%, 60% 50%, 100% 100%)",
@@ -119,14 +144,14 @@ export const OpeningEnvelope = ({ onComplete }) => {
                 <div className="mt-2 text-gold-med text-2xl">🔱</div>
 
                 <div className="space-y-2 my-auto">
-                  <span className="font-vibes text-gold-gradient text-3xl block">Suyog</span>
-                  <span className="text-gold-light text-xs tracking-widest block uppercase font-cinzel">weds</span>
-                  <span className="font-vibes text-gold-gradient text-3xl block">Sayali</span>
+                  <span className="font-yatra text-gold-gradient text-3xl block">सुयोग</span>
+                  <span className="text-gold-light text-xs tracking-widest block uppercase font-yatra">आणि</span>
+                  <span className="font-yatra text-gold-gradient text-3xl block">सायली</span>
                 </div>
 
                 <div className="space-y-1 mb-2">
-                  <p className="font-cinzel text-[9px] tracking-widest text-gold-light/60 uppercase">Save The Date</p>
-                  <p className="font-cinzel text-xs text-gold-med tracking-wider font-bold">JULY 26, 2026</p>
+                  <p className="font-yatra text-[10px] tracking-widest text-gold-light/60 uppercase">शुभविवाह</p>
+                  <p className="font-tiro text-xs text-gold-med tracking-wider font-bold">२६ जुलै २०२६</p>
                 </div>
               </motion.div>
 
@@ -155,7 +180,7 @@ export const OpeningEnvelope = ({ onComplete }) => {
                 >
                   <span className="font-yatra text-gold-gradient text-3xl mr-[-4px] select-none">ॐ</span>
                 </motion.div>
-                
+
                 {/* Right Wax Half */}
                 <motion.div
                   initial={{ x: 0, opacity: 1, rotate: 0 }}

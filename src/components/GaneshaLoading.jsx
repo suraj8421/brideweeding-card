@@ -10,12 +10,20 @@ export const GaneshaLoading = ({ onEnter }) => {
   const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
-    // Show prompt to touch seal after 4 seconds
+    // Show prompt to touch seal after 3.5 seconds
     const timer = setTimeout(() => {
       setShowPrompt(true);
-    }, 4000);
+    }, 3500);
 
-    return () => clearTimeout(timer);
+    // Automatically transition to envelope after 5.5 seconds
+    const autoEnterTimer = setTimeout(() => {
+      handleSealClick();
+    }, 5500);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(autoEnterTimer);
+    };
   }, []);
 
   const handleSealClick = () => {
@@ -78,14 +86,6 @@ export const GaneshaLoading = ({ onEnter }) => {
         >
           {weddingData.invocation.marathi}
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1 }}
-          className="font-cinzel text-sm md:text-base tracking-widest text-gold-light/80 uppercase"
-        >
-          {weddingData.invocation.english}
-        </motion.p>
       </div>
 
       {/* Touch Seal Interactive Prompt */}
@@ -109,13 +109,13 @@ export const GaneshaLoading = ({ onEnter }) => {
                   ॐ
                 </span>
               </div>
-              
+
               {/* Inner glowing pulse */}
               <span className="absolute inset-0 rounded-full animate-ping bg-gold-med/20 pointer-events-none" />
             </button>
-            
-            <p className="font-cinzel text-xs md:text-sm tracking-widest text-gold-med/90 uppercase animate-pulse mt-2">
-              Touch the Sacred Seal to Enter
+
+            <p className="font-yatra text-xs md:text-sm tracking-widest text-gold-med/90 uppercase animate-pulse mt-2">
+              प्रवेश करण्यासाठी स्पर्श करा
             </p>
           </motion.div>
         )}

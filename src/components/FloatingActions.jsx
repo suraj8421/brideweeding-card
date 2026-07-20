@@ -24,7 +24,11 @@ export const FloatingActions = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.lenis) {
+      window.lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -34,7 +38,7 @@ export const FloatingActions = () => {
         <button
           onClick={scrollToTop}
           className="w-10 h-10 flex items-center justify-center rounded-full border border-gold-med/30 bg-primary-darkmaroon/95 text-gold-med hover:text-gold-light hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.3)] cursor-pointer"
-          title="Scroll to Top"
+          title="वर जा"
         >
           <FaArrowUp size={14} />
         </button>
@@ -44,7 +48,7 @@ export const FloatingActions = () => {
       <button
         onClick={handleOpenMaps}
         className="w-12 h-12 flex items-center justify-center rounded-full border border-gold-med/40 bg-gradient-to-br from-gold-dark to-gold-med text-primary-darkmaroon hover:scale-105 active:scale-95 transition-transform cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-        title="Open Location"
+        title="लग्न स्थळ"
       >
         <FaMapMarkerAlt size={20} />
       </button>

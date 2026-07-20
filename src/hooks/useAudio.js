@@ -17,7 +17,7 @@ export const useAudio = () => {
         bgAudio.loop = true;
         bgAudio.volume = volume;
       }
-      
+
       // Update local states from static instance
       setIsPlaying(!bgAudio.paused);
       setIsMuted(bgAudio.muted);

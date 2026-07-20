@@ -5,23 +5,19 @@ import { weddingData } from "../data/weddingData";
 
 export const Blessings = () => {
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       {/* Background soft glowing circle */}
       <div className="absolute w-[40vw] h-[40vw] bg-gold-med/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-3xl w-full text-center space-y-12 z-20">
+      <div className="max-w-3xl w-full text-center space-y-6 z-20">
         
         {/* Title */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Auspicious Blessings
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             मंगलाष्टक व मंत्र
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            Sacred Mantras
-          </p>
+
         </div>
 
         {/* Marriage Mantra Card */}
@@ -88,11 +84,7 @@ export const Blessings = () => {
               {weddingData.mantras[1].sanskrit}
             </p>
             
-            <div className="w-16 h-[1px] bg-gold-med/30 mx-auto" />
-            
-            <p className="font-cinzel text-[10px] md:text-xs text-gold-light/60 uppercase tracking-widest leading-relaxed">
-              {weddingData.mantras[1].translation}
-            </p>
+
           </div>
         </motion.div>
 

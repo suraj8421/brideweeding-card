@@ -21,23 +21,19 @@ export const Events = () => {
   };
 
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute w-96 h-96 bg-gold-med/5 blur-[120px] rounded-full pointer-events-none top-1/4 left-1/4" />
 
-      <div className="max-w-4xl w-full text-center space-y-12 z-20">
+      <div className="max-w-4xl w-full text-center space-y-6 z-20">
         
         {/* Section Title */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Wedding Ceremonies
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             शुभ सोहळा
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            Auspicious Ceremonies
-          </p>
+
         </div>
 
         {/* Dynamic Events Cards Grid */}
@@ -64,9 +60,7 @@ export const Events = () => {
                   <h3 className="font-yatra text-2xl text-gold-gradient">
                     {event.title}
                   </h3>
-                  <p className="font-cinzel text-[11px] tracking-widest text-gold-light/60 uppercase font-semibold">
-                    {event.titleEng}
-                  </p>
+
                 </div>
 
                 <div className="w-12 h-[1px] bg-gold-med/30 mx-auto" />

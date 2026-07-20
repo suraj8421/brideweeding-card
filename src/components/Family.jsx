@@ -6,25 +6,21 @@ import { weddingData } from "../data/weddingData";
 
 export const Family = () => {
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       
       {/* Decorative Swastik patterns */}
       <div className="absolute left-6 top-1/4 text-gold-med/10 text-4xl pointer-events-none select-none">卐</div>
       <div className="absolute right-6 bottom-1/4 text-gold-med/10 text-4xl pointer-events-none select-none">卐</div>
 
-      <div className="max-w-4xl w-full text-center space-y-16 z-20">
+      <div className="max-w-4xl w-full text-center space-y-8 z-20">
         
         {/* Title */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Family & Relatives
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             स्नेही जन
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            Family Directory
-          </p>
+
         </div>
 
         {/* Family Cards Layout */}
@@ -39,7 +35,7 @@ export const Family = () => {
             className="rounded-3xl p-8 border-gold-shimmer-maroon bg-gradient-to-b from-primary-maroon to-primary-darkmaroon/90 shadow-xl max-w-xl mx-auto"
           >
             <h3 className="font-yatra text-xl text-gold-gradient mb-4">
-              {weddingData.family.sendersTitle} (Senders)
+              {weddingData.family.sendersTitle}
             </h3>
             <div className="w-12 h-[1px] bg-gold-med/30 mx-auto mb-4" />
             
@@ -88,8 +84,8 @@ export const Family = () => {
                 {weddingData.family.welcomers.map((member, idx) => (
                   <li key={idx} className="font-tiro text-sm">
                     <span className="font-bold text-primary-maroon">{member.name}</span>
-                    <span className="text-[10px] font-cinzel text-gold-dark block tracking-widest uppercase mt-0.5">
-                      ({member.relation})
+                    <span className="text-[11px] font-tiro text-gold-dark block mt-0.5">
+                      {member.relation}
                     </span>
                   </li>
                 ))}
@@ -109,7 +105,7 @@ export const Family = () => {
 
               <div className="w-full flex flex-col items-center">
                 <h3 className="font-yatra text-xl text-primary-maroon mb-4 relative z-10">
-                  बंधुराज (Cousins)
+                  बंधुराज
                 </h3>
                 <div className="w-12 h-[1px] bg-gold-med/50 mb-6 relative z-10" />
 
@@ -146,7 +142,7 @@ export const Family = () => {
             <div className="absolute inset-0 rounded-3xl bg-paper-texture opacity-20 pointer-events-none" />
 
             <h3 className="font-yatra text-xl text-primary-maroon mb-4 relative z-10">
-              {weddingData.family.littleInvitersTitle} (Little Inviters)
+              {weddingData.family.littleInvitersTitle}
             </h3>
             <div className="w-12 h-[1px] bg-gold-med/50 mb-6 relative z-10" />
 

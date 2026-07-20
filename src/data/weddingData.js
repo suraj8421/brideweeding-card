@@ -66,7 +66,7 @@ export const weddingData = {
   venue: {
     name: "श्री.छ. अभयसिंहराजे भोसले सांस्कृतिक भवन",
     nameEng: "Shri Chhatrapati Abhaysinhraje Bhonsle Sanskurtik Bhavan",
-    address: "अजिंक्यतारा सह. साखर कारखाना मर्या, शेंद्रे, पुणे-बंगलोर हायवे पूर्वेश, ता.जि. सातारा",
+    address: "अजिंक्यतारा सह. साखर कारखाना मर्या, शेंद्रे, पुणे-बंगलोर हायवे  पुर्वेस, ता.जि. सातारा",
     addressEng: "Ajinkyatara Co-op Sugar Factory, Shendre, Pune-Bangalore Highway East, Satara",
     // NOTE: Replace with the actual Google Maps Link provided by the client if needed
     googleMapsLink: "https://www.google.com/maps/dir//Shrimant+Abhaysinhraje+Bhosale+Sanskrutik+Bhavan+,Shendre,+J2G9%2BQ36,+Ajinkyatara+Colony,+Shendre+Fata,+Shendre,+Maharashtra+415519/@18.5031843,73.947738,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bc23a6330b5278f:0xdf5ca2b939db0c45!2m2!1d74.0176114!2d17.6269399?hl=en-IN&entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
@@ -112,14 +112,14 @@ export const weddingData = {
     senders: [
       {
         name: "श्री. पांडुरंग भीमराव निकम-पाटील",
-        relation: "वर-पिता (Groom's Father)",
+        relation: "वर-पिता",
         address: "दत्त मंदिर जवळ, छ. शिवाजी चौक, साखराळे, ता. वाळवा, जि. सांगली",
         phones: ["8421301027", "8421312250"]
       }
     ],
-    welcomersTitle: "आपले स्नेहांकित (Nikam-Patil Family)",
+    welcomersTitle: "आपले स्नेहांकित",
     welcomers: [
-      { name: "सौ. उषाताई व श्री. भीमराव कृष्ण निकम-पाटील", relation: "आजी-आजोबा (Groom's Grandparents)" },
+      { name: "सौ. उषाताई व श्री. भीमराव कृष्ण निकम-पाटील", relation: "आजी-आजोबा" },
       { name: "श्रीमती कमल सर्जेराव निकम-पाटील", relation: "काकू" },
       { name: "सौ. विद्या व श्री. हनुमंतराव भीमराव निकम-पाटील", relation: "काका-काकू" },
       { name: "सौ. गायत्री व श्री. तुकाराम भीमराव निकम-पाटील", relation: "काका-काकू" },

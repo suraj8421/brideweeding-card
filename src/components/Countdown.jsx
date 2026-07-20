@@ -48,7 +48,7 @@ export const Countdown = () => {
           
           <span className="z-10 text-gold-gradient inline-block">{String(value).padStart(2, "0")}</span>
         </div>
-        <span className="font-cinzel text-[10px] sm:text-[11px] tracking-widest text-gold-light/70 uppercase mt-2">
+        <span className="font-tiro text-[11px] sm:text-[12px] tracking-wider text-gold-light/80 mt-2">
           {label}
         </span>
       </div>
@@ -56,26 +56,22 @@ export const Countdown = () => {
   };
 
   return (
-    <section className="relative py-20 flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative py-8 flex flex-col items-center justify-center px-4 overflow-hidden">
       
       {/* Golden peacock feathers or flower watermark background */}
       <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
         <span className="text-[25vw]">🪶</span>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center space-y-10 z-20">
+      <div className="max-w-4xl mx-auto text-center space-y-6 z-20">
         
         {/* Header Invocation */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Auspicious Date
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             {weddingData.weddingDate.date}
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            {weddingData.weddingDate.dateEng}
-          </p>
+
         </div>
 
         {/* Tithi Detail */}
@@ -95,19 +91,19 @@ export const Countdown = () => {
         >
           {isCelebration ? (
             <div className="glass-card border-gold-shimmer py-4 px-10 rounded-2xl text-center">
-              <span className="font-vibes text-gold-gradient text-3xl md:text-4xl block">
-                The Wedding Day is Here!
+              <span className="font-yatra text-gold-gradient text-2xl md:text-3xl block">
+                शुभविवाह सोहळा सुरू झाला आहे!
               </span>
-              <span className="font-cinzel text-xs text-gold-light tracking-widest uppercase mt-1 block">
-                Auspicious celebrations have begun
+              <span className="font-tiro text-xs text-gold-light tracking-widest uppercase mt-1 block">
+                मंगळ सोहळ्याच्या हार्दिक शुभेच्छा
               </span>
             </div>
           ) : (
             <>
-              <CountdownCard value={timeLeft.days} label="Days" />
-              <CountdownCard value={timeLeft.hours} label="Hours" />
-              <CountdownCard value={timeLeft.minutes} label="Mins" />
-              <CountdownCard value={timeLeft.seconds} label="Secs" />
+              <CountdownCard value={timeLeft.days} label="दिवस" />
+              <CountdownCard value={timeLeft.hours} label="तास" />
+              <CountdownCard value={timeLeft.minutes} label="मिनिटे" />
+              <CountdownCard value={timeLeft.seconds} label="सेकंद" />
             </>
           )}
         </motion.div>

@@ -55,21 +55,6 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Couple Monogram Initials */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="space-y-2"
-        >
-          <h1 className="font-cinzel text-5xl md:text-7xl font-extrabold text-gold-gradient tracking-widest uppercase">
-            {weddingData.bride.initial} & {weddingData.groom.initial}
-          </h1>
-          <p className="font-cinzel text-xs md:text-sm tracking-[0.3em] text-gold-light/60 uppercase">
-            Sayali & Suyog
-          </p>
-        </motion.div>
 
         {/* Beautiful Elegant Divider */}
         <div className="flex justify-center py-2">
@@ -91,9 +76,7 @@ export const Hero = () => {
           <p className="font-tiro text-lg md:text-xl text-gold-light/95 leading-relaxed italic">
             "{weddingData.quote.marathi}"
           </p>
-          <p className="font-cinzel text-xs md:text-sm text-gold-med/75 tracking-wider">
-            {weddingData.quote.english}
-          </p>
+
         </motion.div>
       </div>
 
@@ -111,7 +94,7 @@ export const Hero = () => {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-4 flex flex-col items-center gap-1 z-20 pointer-events-none"
       >
-        <span className="font-cinzel text-[9px] tracking-[0.2em] text-gold-med/60 uppercase">Scroll to View</span>
+
         <svg className="w-4 h-4 text-gold-med/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

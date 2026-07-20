@@ -47,25 +47,22 @@ export const MemoryLane = () => {
   };
 
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       
-      {/* Decorative diyas watermark background */}
-      <div className="absolute left-8 top-1/3 text-[15vw] opacity-[0.02] pointer-events-none select-none">🪔</div>
-      <div className="absolute right-8 bottom-1/3 text-[15vw] opacity-[0.02] pointer-events-none select-none">🪔</div>
+      {/* Background radial soft light glow overlay */}
+      <div className="absolute w-[45vw] h-[45vw] bg-gold-med/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute left-10 bottom-10 text-[15vw] opacity-[0.02] select-none pointer-events-none">✨</div>
+      <div className="absolute right-10 top-10 text-[15vw] opacity-[0.02] select-none pointer-events-none">✨</div>
 
-      <div className="max-w-4xl w-full text-center space-y-12 z-20">
+      <div className="max-w-4xl w-full text-center space-y-6 z-20">
         
         {/* Title */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Captured Memories
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             स्मरणिका
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            Memory Lane
-          </p>
+
         </div>
 
         {/* Single Premium Interactive Frame */}
@@ -110,11 +107,11 @@ export const MemoryLane = () => {
                     // Premium coming soon slide layout
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-br from-primary-darkmaroon to-primary-maroon select-none">
                       <div className="text-gold-dark/15 text-9xl absolute pointer-events-none">🪶</div>
-                      <span className="font-cinzel text-xs tracking-widest text-gold-gradient font-semibold uppercase z-10">
-                        Pre-Wedding Memory {activeIndex + 1}
+                      <span className="font-yatra text-xs tracking-wider text-gold-gradient font-semibold uppercase z-10">
+                        लग्न स्मरणिका {activeIndex + 1}
                       </span>
-                      <span className="font-vibes text-gold-light text-3xl z-10 mt-2">
-                        Coming Soon
+                      <span className="font-tiro text-gold-light text-2xl z-10 mt-2">
+                        लवकरच येत आहे
                       </span>
                       <div className="w-12 h-[1px] bg-gold-med/40 mt-4 z-10" />
                     </div>

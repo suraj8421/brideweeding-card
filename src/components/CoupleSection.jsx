@@ -52,8 +52,8 @@ export const CoupleSection = () => {
 
         {/* Details card with glassmorphism */}
         <div className="mt-8 text-center glass-card-light w-full py-4 px-6 rounded-2xl border-gold-shimmer text-primary-darkmaroon">
-          <p className="font-cinzel text-xs tracking-widest uppercase text-gold-dark font-semibold">
-            {isBride ? "The Bride" : "The Groom"}
+          <p className="font-tiro text-sm tracking-wider text-gold-dark font-semibold">
+            {isBride ? "वधू" : "वर"}
           </p>
           <h2 className="font-yatra text-2xl text-primary-maroon mt-1">
             {name}
@@ -71,7 +71,7 @@ export const CoupleSection = () => {
   };
 
   return (
-    <section className="relative py-24 flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative py-10 flex flex-col items-center justify-center px-4 overflow-hidden">
       {/* Background mandala watermark */}
       <div className="absolute w-[600px] h-[600px] border border-gold-med/5 rounded-full pointer-events-none -left-48 top-12 animate-spin-slow opacity-30" />
       <div className="absolute w-[600px] h-[600px] border border-gold-med/5 rounded-full pointer-events-none -right-48 bottom-12 animate-spin-slow [animation-direction:reverse] opacity-30" />
@@ -81,7 +81,7 @@ export const CoupleSection = () => {
       <div className="absolute right-0 top-0 text-7xl opacity-5 select-none pointer-events-none font-bold">🍃</div>
 
       {/* Main Container */}
-      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 z-20">
+      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 z-20">
         
         {/* Groom Card */}
         <ProfileFrame

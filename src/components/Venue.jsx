@@ -12,24 +12,20 @@ export const Venue = () => {
   };
 
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       
       {/* Decorative banana leaves watermark */}
       <div className="absolute right-0 top-1/4 text-[20vw] opacity-[0.03] select-none pointer-events-none font-bold">🍃</div>
 
-      <div className="max-w-3xl w-full text-center space-y-12 z-20">
+      <div className="max-w-3xl w-full text-center space-y-6 z-20">
         
         {/* Title */}
         <div className="space-y-2">
-          <p className="font-cinzel text-xs tracking-widest text-gold-med/80 uppercase">
-            Wedding Venue
-          </p>
+
           <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
             लग्न स्थळ
           </h2>
-          <p className="font-cinzel text-xs tracking-widest text-gold-light/60 uppercase">
-            Venue & Location
-          </p>
+
         </div>
 
         {/* Venue Card */}
@@ -53,18 +49,14 @@ export const Venue = () => {
             <h3 className="font-yatra text-2xl md:text-3xl text-gold-gradient leading-tight">
               {weddingData.venue.name}
             </h3>
-            <p className="font-cinzel text-xs text-gold-light/60 tracking-wider font-semibold uppercase">
-              {weddingData.venue.nameEng}
-            </p>
+
             
             <div className="h-[1px] w-24 bg-gold-med/20 mx-auto my-4" />
 
             <p className="font-tiro text-base md:text-lg text-gold-light/90 leading-relaxed font-medium">
               {weddingData.venue.address}
             </p>
-            <p className="font-cinzel text-[11px] text-gold-light/50 tracking-wider">
-              {weddingData.venue.addressEng}
-            </p>
+
           </div>
 
           {/* Large Navigation Button */}
@@ -73,7 +65,7 @@ export const Venue = () => {
             className="mt-6 flex items-center gap-2 py-3 px-8 rounded-full bg-gradient-to-r from-gold-dark via-gold-med to-gold-dark text-primary-darkmaroon font-cinzel text-xs font-bold tracking-widest uppercase hover:scale-105 active:scale-95 shadow-[0_4px_15px_rgba(212,175,55,0.4)] transition-all duration-300 cursor-pointer"
           >
             <FaLocationArrow className="text-xs" />
-            Open Location on Google Maps
+            गुगल मॅपवर लग्न स्थळ पहा
           </button>
         </motion.div>
 

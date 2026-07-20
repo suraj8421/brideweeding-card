@@ -12,11 +12,11 @@ import { Events } from "./components/Events";
 import { Venue } from "./components/Venue";
 import { MemoryLane } from "./components/MemoryLane";
 import { Blessings } from "./components/Blessings";
-import { PreWeddingVideo } from "./components/PreWeddingVideo";
 import { ThankYou } from "./components/ThankYou";
 import { FloatingActions } from "./components/FloatingActions";
 import { PetalRain } from "./animations/PetalRain";
 import { Fireflies } from "./animations/Fireflies";
+import Lenis from "lenis";
 
 function App() {
   const [phase, setPhase] = useState("loading"); // "loading" | "envelope" | "main"
@@ -31,6 +31,91 @@ function App() {
     }
     return () => {
       document.body.style.overflow = "unset";
+    };
+  }, [phase]);
+
+  // Initialize Lenis smooth scrolling when in main phase
+  useEffect(() => {
+    if (phase !== "main") return;
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      gestureOrientation: "vertical",
+      normalizeWheel: true,
+      smoothWheel: true,
+    });
+
+    let animationFrameId;
+    function raf(time) {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
+    }
+
+    animationFrameId = requestAnimationFrame(raf);
+
+    // Make lenis globally accessible for debugging or manual scroll integration
+    window.lenis = lenis;
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      lenis.destroy();
+      delete window.lenis;
+    };
+  }, [phase]);
+
+  // Cinematic automatic scrolling when entering the main phase
+  useEffect(() => {
+    if (phase !== "main") return;
+
+    let animationFrameId;
+    let lastTime = performance.now();
+    const pixelsPerSecond = 75; // Gentle cinematic scrolling speed
+
+    const scroll = (time) => {
+      const delta = (time - lastTime) / 1000;
+      lastTime = time;
+
+      if (window.lenis) {
+        window.lenis.scrollTo(window.lenis.scroll + pixelsPerSecond * delta, { immediate: true });
+      } else {
+        window.scrollBy(0, pixelsPerSecond * delta);
+      }
+
+      // Check if we reached the bottom of the page
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxScroll - 2) {
+        cancelAnimationFrame(animationFrameId);
+        return;
+      }
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    // Delay auto-scrolling slightly so the user can enjoy the hero section first
+    const startDelayTimer = setTimeout(() => {
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(scroll);
+    }, 1500);
+
+    // Stop auto-scrolling if the user interacts (scrolls, touches, clicks, presses keys)
+    const stopAutoScroll = () => {
+      clearTimeout(startDelayTimer);
+      cancelAnimationFrame(animationFrameId);
+    };
+
+    window.addEventListener("wheel", stopAutoScroll, { once: true, passive: true });
+    window.addEventListener("touchmove", stopAutoScroll, { once: true, passive: true });
+    window.addEventListener("mousedown", stopAutoScroll, { once: true, passive: true });
+    window.addEventListener("keydown", stopAutoScroll, { once: true, passive: true });
+
+    return () => {
+      clearTimeout(startDelayTimer);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("wheel", stopAutoScroll);
+      window.removeEventListener("touchmove", stopAutoScroll);
+      window.removeEventListener("mousedown", stopAutoScroll);
+      window.removeEventListener("keydown", stopAutoScroll);
     };
   }, [phase]);
 
@@ -89,9 +174,6 @@ function App() {
 
             {/* Memory Lane vertical scroll gallery */}
             <MemoryLane />
-
-            {/* Pre-wedding Video Teaser */}
-            <PreWeddingVideo />
 
             {/* Traditional Mantras & Diyas */}
             <Blessings />

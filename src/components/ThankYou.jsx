@@ -5,12 +5,12 @@ import { weddingData } from "../data/weddingData";
 
 export const ThankYou = () => {
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center text-center overflow-hidden">
       
       {/* Decorative floral watermark backdrop */}
       <div className="absolute w-[50vw] h-[50vw] bg-gold-med/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-2xl mx-auto space-y-12 z-20">
+      <div className="max-w-2xl mx-auto space-y-6 z-20">
         
         {/* Praying hands emoji & traditional invocation */}
         <motion.div
@@ -35,19 +35,6 @@ export const ThankYou = () => {
           </svg>
         </div>
 
-        {/* Gratitude Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.0, delay: 0.3 }}
-          className="space-y-4"
-        >
-          <p className="font-tiro text-base md:text-lg text-gold-light/90 leading-relaxed max-w-lg mx-auto">
-            {weddingData.finalBlessing.english}
-          </p>
-        </motion.div>
-
         {/* Senders signature */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -56,11 +43,11 @@ export const ThankYou = () => {
           transition={{ duration: 1.2, delay: 0.5 }}
           className="space-y-2 pt-6"
         >
-          <p className="font-cinzel text-xs tracking-[0.2em] text-gold-med/75 uppercase">
-            {weddingData.finalBlessing.withLove}
+          <p className="font-tiro text-xs tracking-wider text-gold-med/85">
+            आपले नम्र,
           </p>
           <p className="font-yatra text-2xl text-gold-gradient">
-            {weddingData.finalBlessing.families}
+            निकम-पाटील व पवार परिवार
           </p>
         </motion.div>
 

@@ -5,7 +5,7 @@ import { weddingData } from "../data/weddingData";
 
 export const InvitationLetter = () => {
   return (
-    <section className="relative py-24 px-4 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
       
       {/* Decorative Traditional Swastik/Lotus corner indicators */}
       <div className="absolute top-10 left-10 text-gold-med/15 text-5xl pointer-events-none hidden md:block select-none">卐</div>
@@ -19,17 +19,14 @@ export const InvitationLetter = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1.2 }}
-        className="max-w-3xl w-full text-center space-y-12 z-20"
+        className="max-w-3xl w-full text-center space-y-6 z-20"
       >
         {/* Sanskrit Prayer Header */}
         <div className="space-y-4">
           <p className="font-tiro text-base md:text-lg text-gold-med leading-relaxed whitespace-pre-line tracking-wide">
             {weddingData.mantras[0].sanskrit}
           </p>
-          <div className="w-16 h-[1px] bg-gold-med/30 mx-auto" />
-          <p className="font-cinzel text-[10px] md:text-xs text-gold-light/60 uppercase tracking-widest max-w-lg mx-auto">
-            {weddingData.mantras[0].translation}
-          </p>
+
         </div>
 
         {/* The Royal Scroll / Invitation Card (Paper texture with gold accents) */}
