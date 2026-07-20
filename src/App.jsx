@@ -7,7 +7,6 @@ import { OpeningEnvelope } from "./components/OpeningEnvelope";
 import { Hero } from "./components/Hero";
 import { CoupleSection } from "./components/CoupleSection";
 import { Countdown } from "./components/Countdown";
-import { InvitationLetter } from "./components/InvitationLetter";
 import { Events } from "./components/Events";
 import { Venue } from "./components/Venue";
 import { MemoryLane } from "./components/MemoryLane";
@@ -69,50 +68,74 @@ function App() {
     if (phase !== "main") return;
 
     let animationFrameId;
-    let lastTime = performance.now();
-    const pixelsPerSecond = 75; // Gentle cinematic scrolling speed
+    let startDelayTimer;
+    const pixelsPerSecond = 130; // Increased cinematic scrolling speed (from 75)
 
-    const scroll = (time) => {
-      const delta = (time - lastTime) / 1000;
-      lastTime = time;
-
+    const startAutoScroll = () => {
       if (window.lenis) {
-        window.lenis.scrollTo(window.lenis.scroll + pixelsPerSecond * delta, { immediate: true });
+        // Use Lenis's native scrollTo with linear interpolation for a fluid, jitter-free scroll
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const currentScroll = window.lenis.scroll;
+        const remainingDistance = Math.max(0, maxScroll - currentScroll);
+        const duration = remainingDistance / pixelsPerSecond; // duration in seconds
+
+        if (duration > 0) {
+          window.lenis.scrollTo(maxScroll, {
+            duration: duration,
+            easing: (t) => t, // perfectly linear speed for cinematic scroll
+          });
+        }
       } else {
-        window.scrollBy(0, pixelsPerSecond * delta);
-      }
+        // Fallback for environments without Lenis
+        let lastTime = performance.now();
+        const scrollFallback = (time) => {
+          const delta = (time - lastTime) / 1000;
+          lastTime = time;
 
-      // Check if we reached the bottom of the page
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= maxScroll - 2) {
-        cancelAnimationFrame(animationFrameId);
-        return;
-      }
+          window.scrollBy(0, pixelsPerSecond * delta);
 
-      animationFrameId = requestAnimationFrame(scroll);
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (window.scrollY >= maxScroll - 2) {
+            cancelAnimationFrame(animationFrameId);
+            return;
+          }
+
+          animationFrameId = requestAnimationFrame(scrollFallback);
+        };
+        animationFrameId = requestAnimationFrame(scrollFallback);
+      }
     };
 
     // Delay auto-scrolling slightly so the user can enjoy the hero section first
-    const startDelayTimer = setTimeout(() => {
-      lastTime = performance.now();
-      animationFrameId = requestAnimationFrame(scroll);
+    startDelayTimer = setTimeout(() => {
+      startAutoScroll();
     }, 1500);
 
     // Stop auto-scrolling if the user interacts (scrolls, touches, clicks, presses keys)
     const stopAutoScroll = () => {
       clearTimeout(startDelayTimer);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      if (window.lenis) {
+        // Stop current Lenis animation by immediately scrolling to current position
+        window.lenis.scrollTo(window.lenis.scroll, { immediate: true });
+      }
     };
 
     window.addEventListener("wheel", stopAutoScroll, { once: true, passive: true });
+    window.addEventListener("touchstart", stopAutoScroll, { once: true, passive: true });
     window.addEventListener("touchmove", stopAutoScroll, { once: true, passive: true });
     window.addEventListener("mousedown", stopAutoScroll, { once: true, passive: true });
     window.addEventListener("keydown", stopAutoScroll, { once: true, passive: true });
 
     return () => {
       clearTimeout(startDelayTimer);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
       window.removeEventListener("wheel", stopAutoScroll);
+      window.removeEventListener("touchstart", stopAutoScroll);
       window.removeEventListener("touchmove", stopAutoScroll);
       window.removeEventListener("mousedown", stopAutoScroll);
       window.removeEventListener("keydown", stopAutoScroll);
@@ -162,9 +185,6 @@ function App() {
 
             {/* Date & Countdown */}
             <Countdown />
-
-            {/* Marathi Traditional Invitation letter */}
-            <InvitationLetter />
 
             {/* Ceremonies (Haldi & Wedding cards) */}
             <Events />

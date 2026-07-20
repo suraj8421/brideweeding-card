@@ -8,25 +8,24 @@ export const GaneshaLoading = ({ onEnter }) => {
   const { playMusic, playSoundEffect } = useAudio();
   const [showPrompt, setShowPrompt] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
 
   useEffect(() => {
-    // Show prompt to touch seal after 3.5 seconds
+    // Show prompt to touch seal after 1.0 seconds
     const timer = setTimeout(() => {
       setShowPrompt(true);
-    }, 3500);
-
-    // Automatically transition to envelope after 5.5 seconds
-    const autoEnterTimer = setTimeout(() => {
-      handleSealClick();
-    }, 5500);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
-      clearTimeout(autoEnterTimer);
     };
   }, []);
 
-  const handleSealClick = () => {
+  const handleSealClick = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (hasEntered) return;
+    setHasEntered(true);
+
     // Play bell and conch sound effects
     playSoundEffect("bell");
     setTimeout(() => {
@@ -41,7 +40,10 @@ export const GaneshaLoading = ({ onEnter }) => {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full bg-primary-darkmaroon bg-maroon-gradient flex flex-col items-center justify-center z-50 px-4 overflow-hidden">
+    <div 
+      onClick={(e) => handleSealClick(e)}
+      className="fixed inset-0 w-full h-full bg-primary-darkmaroon bg-maroon-gradient flex flex-col items-center justify-center z-50 px-4 overflow-hidden cursor-pointer"
+    >
       {/* Background glowing mandala ring */}
       <div className="absolute w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] border border-gold-med/15 rounded-full animate-spin-slow pointer-events-none opacity-40" />
       <div className="absolute w-[60vw] h-[60vw] max-w-[450px] max-h-[450px] border border-dashed border-gold-med/10 rounded-full animate-spin-slow [animation-direction:reverse] pointer-events-none opacity-30" />

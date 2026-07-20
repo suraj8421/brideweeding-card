@@ -79,7 +79,7 @@ export const MemoryLane = () => {
             {/* Tap helper notification overlay */}
             <div className="absolute top-5 inset-x-0 z-20 pointer-events-none flex justify-center">
               <span className="bg-primary-darkmaroon/80 border border-gold-med/25 text-[10px] sm:text-xs font-cinzel text-gold-light tracking-widest uppercase py-1 px-3 rounded-full backdrop-blur shadow-md">
-                Tap Photo to View Next • ({activeIndex + 1}/{totalPhotos})
+                ({activeIndex + 1}/{totalPhotos})
               </span>
             </div>
 
