@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-export const OpeningEnvelope = ({ onComplete }) => {
+export const OpeningEnvelope = ({ onComplete, onOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDone, setIsDone] = useState(false);
 
@@ -35,6 +35,7 @@ export const OpeningEnvelope = ({ onComplete }) => {
   const handleOpen = () => {
     if (isOpen) return;
     setIsOpen(true);
+    if (onOpen) onOpen();
 
     // Launch golden sparkles / confetti
     setTimeout(() => {

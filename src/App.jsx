@@ -17,8 +17,11 @@ import { PetalRain } from "./animations/PetalRain";
 import { Fireflies } from "./animations/Fireflies";
 import Lenis from "lenis";
 
+import { useAudio } from "./hooks/useAudio";
+
 function App() {
   const [phase, setPhase] = useState("loading"); // "loading" | "envelope" | "main"
+  const { playMusic } = useAudio();
 
   // Coordinate body overflow scroll locks during introductory sequences
   useEffect(() => {
@@ -153,7 +156,7 @@ function App() {
 
       {/* 2. Envelope Phase (Gold sealed envelope click interaction) */}
       {phase === "envelope" && (
-        <OpeningEnvelope onComplete={() => setPhase("main")} />
+        <OpeningEnvelope onComplete={() => setPhase("main")} onOpen={playMusic} />
       )}
 
       {/* 3. Main cinematic scroll invitation website */}
