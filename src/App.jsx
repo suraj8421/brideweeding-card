@@ -118,8 +118,9 @@ function App() {
         cancelAnimationFrame(animationFrameId);
       }
       if (window.lenis) {
-        // Stop current Lenis animation by immediately scrolling to current position
-        window.lenis.scrollTo(window.lenis.scroll, { immediate: true });
+        // Stop current Lenis animation instantly
+        window.lenis.stop();
+        window.lenis.start();
       }
     };
 
