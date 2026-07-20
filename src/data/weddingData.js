@@ -15,7 +15,7 @@ export const weddingData = {
 
   // Bride Details
   bride: {
-    name: "चि.सौ.कां. सायली",
+    name: "चि.सौ.का. सायली",
     nameEng: "Sayali",
     initial: "S",
     photo: "/images/bride.png",

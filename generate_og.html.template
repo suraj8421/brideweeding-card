@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Generate OG Image</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-family: sans-serif;
+    }
+    canvas {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="status" style="font-size: 24px; font-weight: bold;">Loading fonts and assets...</div>
+  <canvas id="ogCanvas" width="1200" height="630" style="display: none;"></canvas>
+
+  <script>
+    const data = {
+      invocation: "{{invocation}}",
+      groom: "{{groom}}",
+      bride: "{{bride}}",
+      day: "{{day}}",
+      date: "{{date}}",
+      time: "{{time}}",
+      venue_name: "{{venue_name}}",
+      venue_address: "{{venue_address}}"
+    };
+
+    // Make sure fonts are loaded before drawing on canvas
+    document.fonts.ready.then(function () {
+      document.getElementById('status').innerText = "Generating high-quality image...";
+      const canvas = document.getElementById('ogCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // 1. Draw radial gradient background
+      const grad = ctx.createRadialGradient(600, 315, 50, 600, 315, 700);
+      grad.addColorStop(0, '#6B0010'); // Center Maroon
+      grad.addColorStop(1, '#2E0004'); // Edge Maroon
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1200, 630);
+
+      // 2. Draw gold borders
+      ctx.strokeStyle = '#AA771C'; // gold-dark
+      ctx.lineWidth = 2;
+      ctx.strokeRect(15, 15, 1170, 600);
+
+      ctx.strokeStyle = '#FCE6A4'; // gold-light
+      ctx.lineWidth = 1;
+      ctx.strokeRect(25, 25, 1150, 580);
+
+      // Corners
+      const drawCorner = (x, y) => {
+        ctx.fillStyle = '#D4AF37'; // gold-med
+        ctx.strokeStyle = '#FCE6A4';
+        ctx.lineWidth = 1;
+        ctx.fillRect(x - 5, y - 5, 10, 10);
+        ctx.strokeRect(x - 5, y - 5, 10, 10);
+      };
+      drawCorner(25, 25);
+      drawCorner(1175, 25);
+      drawCorner(25, 605);
+      drawCorner(1175, 605);
+
+      // 3. Load Ganesha image
+      const ganeshImg = new Image();
+      ganeshImg.src = '/public/images/ganesh.png';
+      ganeshImg.onload = () => {
+        ctx.drawImage(ganeshImg, 600 - 50, 35, 100, 100);
+
+        // 4. Draw texts
+        ctx.textAlign = 'center';
+        
+        // Invocation: ॥ श्री गणेशाय नमः ॥
+        ctx.font = '20px "Yatra One"';
+        ctx.fillStyle = '#FCE6A4';
+        ctx.fillText(data.invocation, 600, 172);
+
+        // Divider Line below invocation
+        ctx.strokeStyle = '#AA771C';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(600 - 120, 190);
+        ctx.lineTo(600 + 120, 190);
+        ctx.stroke();
+
+        ctx.fillStyle = '#D4AF37';
+        ctx.strokeStyle = '#FCE6A4';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(600, 190, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        // Couple Names
+        ctx.fillStyle = '#FCE6A4';
+        ctx.font = '50px "Yatra One"';
+        ctx.fillText(data.groom, 600, 260);
+
+        ctx.fillStyle = '#D4AF37';
+        ctx.font = '28px "Yatra One"';
+        ctx.fillText("शुभविवाह", 600, 318);
+
+        ctx.fillStyle = '#FCE6A4';
+        ctx.font = '50px "Yatra One"';
+        ctx.fillText(data.bride, 600, 385);
+
+        // Lower Divider
+        ctx.strokeStyle = '#AA771C';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(600 - 200, 412);
+        ctx.lineTo(600 + 200, 412);
+        ctx.stroke();
+
+        // Date and Time
+        ctx.fillStyle = '#FCE6A4';
+        ctx.font = '20px "Yatra One"';
+        ctx.fillText(data.day + ", " + data.date + "  |  " + data.time, 600, 452);
+
+        // Venue Name
+        ctx.fillStyle = '#D4AF37';
+        ctx.font = '20px "Yatra One"';
+        ctx.fillText("स्थळ: " + data.venue_name, 600, 505);
+
+        // Venue Address
+        ctx.fillStyle = '#FCE6A4';
+        ctx.font = '15px "Yatra One"';
+        ctx.fillText(data.venue_address, 600, 548);
+
+        // Send back to server
+        const jpegData = canvas.toDataURL('image/jpeg', 0.85);
+        fetch('/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: jpegData })
+        })
+        .then(res => res.json())
+        .then(response => {
+          document.getElementById('status').innerText = "Image generated and saved successfully!";
+        })
+        .catch(err => {
+          document.getElementById('status').innerText = "Error saving image: " + err;
+        });
+      };
+    });
+  </script>
+</body>
+</html>
