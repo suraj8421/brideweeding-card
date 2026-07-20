@@ -16,8 +16,14 @@ export const GaneshaLoading = ({ onEnter }) => {
       setShowPrompt(true);
     }, 1000);
 
+    // Automatically transition to envelope after 3.0 seconds
+    const autoEnterTimer = setTimeout(() => {
+      handleSealClick();
+    }, 3000);
+
     return () => {
       clearTimeout(timer);
+      clearTimeout(autoEnterTimer);
     };
   }, []);
 
@@ -115,10 +121,6 @@ export const GaneshaLoading = ({ onEnter }) => {
               {/* Inner glowing pulse */}
               <span className="absolute inset-0 rounded-full animate-ping bg-gold-med/20 pointer-events-none" />
             </button>
-
-            <p className="font-yatra text-xs md:text-sm tracking-widest text-gold-med/90 uppercase animate-pulse mt-2">
-              प्रवेश करण्यासाठी स्पर्श करा
-            </p>
           </motion.div>
         )}
       </AnimatePresence>

@@ -21,6 +21,38 @@ export const useAudio = () => {
       // Update local states from static instance
       setIsPlaying(!bgAudio.paused);
       setIsMuted(bgAudio.muted);
+
+      // Global helper to trigger music on first user interaction if blocked
+      const startAudioOnInteraction = () => {
+        if (bgAudio && bgAudio.paused) {
+          bgAudio.play()
+            .then(() => {
+              setIsPlaying(true);
+              removeListeners();
+            })
+            .catch((err) => {
+              console.log("Autoplay still blocked", err);
+            });
+        } else {
+          removeListeners();
+        }
+      };
+
+      const removeListeners = () => {
+        window.removeEventListener("click", startAudioOnInteraction);
+        window.removeEventListener("touchstart", startAudioOnInteraction);
+        window.removeEventListener("scroll", startAudioOnInteraction);
+        window.removeEventListener("wheel", startAudioOnInteraction);
+      };
+
+      window.addEventListener("click", startAudioOnInteraction, { passive: true });
+      window.addEventListener("touchstart", startAudioOnInteraction, { passive: true });
+      window.addEventListener("scroll", startAudioOnInteraction, { passive: true });
+      window.addEventListener("wheel", startAudioOnInteraction, { passive: true });
+
+      return () => {
+        removeListeners();
+      };
     }
   }, []);
 
