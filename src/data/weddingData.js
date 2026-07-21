@@ -69,7 +69,7 @@ export const weddingData = {
     address: "अजिंक्यतारा सह. साखर कारखाना मर्या, शेंद्रे, पुणे-बंगलोर हायवे  पुर्वेस, ता.जि. सातारा",
     addressEng: "Ajinkyatara Co-op Sugar Factory, Shendre, Pune-Bangalore Highway East, Satara",
     // NOTE: Replace with the actual Google Maps Link provided by the client if needed
-    googleMapsLink: "https://www.google.com/maps/dir//Shrimant+Abhaysinhraje+Bhosale+Sanskrutik+Bhavan+,Shendre,+J2G9%2BQ36,+Ajinkyatara+Colony,+Shendre+Fata,+Shendre,+Maharashtra+415519/@18.5031843,73.947738,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bc23a6330b5278f:0xdf5ca2b939db0c45!2m2!1d74.0176114!2d17.6269399?hl=en-IN&entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
+    googleMapsLink: "https://surl.li/xrbzxx",
   },
 
   // Events (ONLY actual events from the PDF, no fake ones created)
