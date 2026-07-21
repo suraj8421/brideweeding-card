@@ -91,9 +91,7 @@ export const OpeningEnvelope = ({ onComplete, onOpen }) => {
 
           <div className="text-center z-10 w-full max-w-[480px]">
             {/* Guide Text */}
-            <p className="font-yatra text-xs md:text-sm tracking-widest text-gold-light/70 uppercase mb-8 animate-pulse">
-              {!isOpen ? "निमंत्रण पत्रिका उघडण्यासाठी स्पर्श करा" : "निमंत्रण पत्रिका उघडत आहे..."}
-            </p>
+          
 
             {/* 3D Envelope Wrapper */}
             <div
