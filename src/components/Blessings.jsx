@@ -10,13 +10,11 @@ export const Blessings = () => {
       <div className="absolute w-[40vw] h-[40vw] bg-gold-med/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-3xl w-full text-center space-y-6 z-20">
-        
+
         {/* Title */}
         <div className="space-y-2">
 
-          <h2 className="font-yatra text-3xl md:text-4xl text-gold-gradient">
-            मंगलाष्टक व मंत्र
-          </h2>
+
 
         </div>
 
@@ -83,7 +81,7 @@ export const Blessings = () => {
             <p className="font-tiro text-lg md:text-xl text-gold-gradient leading-relaxed whitespace-pre-line tracking-wide font-semibold">
               {weddingData.mantras[1].sanskrit}
             </p>
-            
+
 
           </div>
         </motion.div>

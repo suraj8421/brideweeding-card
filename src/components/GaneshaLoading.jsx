@@ -121,6 +121,11 @@ export const GaneshaLoading = ({ onEnter }) => {
               {/* Inner glowing pulse */}
               <span className="absolute inset-0 rounded-full animate-ping bg-gold-med/20 pointer-events-none" />
             </button>
+
+            {/* Guide text under the button */}
+            <p className="font-yatra text-gold-light/90 text-sm md:text-base tracking-wide mt-2 animate-pulse select-none">
+              पत्रिका पाहण्यासाठी Touch करा
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
