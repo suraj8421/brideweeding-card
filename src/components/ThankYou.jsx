@@ -5,7 +5,7 @@ import { weddingData } from "../data/weddingData";
 
 export const ThankYou = () => {
   return (
-    <section className="relative py-10 px-4 flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative pt-10 pb-28 md:pb-32 px-4 flex flex-col items-center justify-center text-center overflow-hidden">
       
       {/* Decorative floral watermark backdrop */}
       <div className="absolute w-[50vw] h-[50vw] bg-gold-med/5 rounded-full blur-[100px] pointer-events-none" />

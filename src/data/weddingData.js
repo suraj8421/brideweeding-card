@@ -55,8 +55,8 @@ export const weddingData = {
     dayEng: "Sunday",
     date: "रविवार, 15 नोव्हेंबर",
     dateEng: "Sunday, November 15",
-    time: "दुपारी ०२:५१ वाजता",
-    timeEng: "02:51 PM",
+    time: "दुपारी 12:52 वाजता",
+    timeEng: "12:52 PM",
     // tithi: "मिती आषाढ शु. १२, शके १९४८",
     tithiEng: "Mithi Ashadha Shuddha 12, Shake 1948",
     countdownDate: "2026-11-15T14:51:00", // ISO standard countdown
@@ -107,7 +107,7 @@ export const weddingData = {
   },
 
   // Family Directory (Traditional Senders and Welcomers)
- 
+
   // Sound and Video settings (relative public paths)
   assets: {
     backgroundMusic: "/music/background.mp3",
