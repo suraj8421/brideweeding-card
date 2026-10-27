@@ -45,13 +45,15 @@ export const FloatingActions = () => {
       )}
 
       {/* Floating Action Button - Maps Location */}
-      <button
-        onClick={handleOpenMaps}
+      <a
+        href={weddingData.venue.googleMapsLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-12 h-12 flex items-center justify-center rounded-full border border-gold-med/40 bg-gradient-to-br from-gold-dark to-gold-med text-primary-darkmaroon hover:scale-105 active:scale-95 transition-transform cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
         title="लग्न स्थळ"
       >
         <FaMapMarkerAlt size={20} />
-      </button>
+      </a>
     </div>
   );
 };

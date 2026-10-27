@@ -47,7 +47,7 @@ export const ThankYou = () => {
             आपले नम्र,
           </p>
           <p className="font-yatra text-2xl text-gold-gradient">
-            निकम-पाटील व पवार परिवार
+            खवरे व इंगळे परिवार
           </p>
         </motion.div>
 

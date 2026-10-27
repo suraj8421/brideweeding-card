@@ -143,14 +143,14 @@ export const OpeningEnvelope = ({ onComplete, onOpen }) => {
                 <div className="mt-2 text-gold-med text-2xl">🔱</div>
 
                 <div className="space-y-2 my-auto">
-                  <span className="font-yatra text-gold-gradient text-3xl block">सुयोग</span>
+                  <span className="font-yatra text-gold-gradient text-3xl block">जीवन</span>
                   <span className="text-gold-light text-xs tracking-widest block uppercase font-yatra">आणि</span>
-                  <span className="font-yatra text-gold-gradient text-3xl block">सायली</span>
+                  <span className="font-yatra text-gold-gradient text-3xl block">पूनम</span>
                 </div>
 
                 <div className="space-y-1 mb-2">
                   <p className="font-yatra text-[10px] tracking-widest text-gold-light/60 uppercase">शुभविवाह</p>
-                  <p className="font-tiro text-xs text-gold-med tracking-wider font-bold">२६ जुलै २०२६</p>
+                  <p className="font-tiro text-xs text-gold-med tracking-wider font-bold">१५ नोव्हेंबर २०२६</p>
                 </div>
               </motion.div>
 

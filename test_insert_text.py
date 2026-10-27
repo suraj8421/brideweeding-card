@@ -29,9 +29,9 @@ col_dark = (170/255, 119/255, 28/255)
 
 # Try drawing all elements
 draw_centered("॥ श्री गणेशाय नमः ॥", 180, font_tiro, "tiro", 20, col_light)
-draw_centered("चि. सुयोग", 270, font_yatra, "yatra", 50, col_light)
+draw_centered("चि. जीवन", 270, font_yatra, "yatra", 50, col_light)
 draw_centered("शुभविवाह", 325, font_tiro, "tiro", 26, col_med)
-draw_centered("चि.सौ.कां. सायली", 395, font_yatra, "yatra", 50, col_light)
+draw_centered("चि.सौ.का. पूनम", 395, font_yatra, "yatra", 50, col_light)
 draw_centered("रविवार, २६ जुलै २०२६  |  दुपारी ०२:५१ वाजता", 460, font_tiro, "tiro", 20, col_light)
 draw_centered("स्थळ: श्री.छ. अभयसिंहराजे भोसले सांस्कृतिक भवन", 510, font_tiro, "tiro", 20, col_med)
 draw_centered("अजिंक्यतारा सह. साखर कारखाना मर्या, शेंद्रे, पुणे-बंगलोर हायवे  पुर्वेस, ता.जि. सातारा", 545, font_tiro, "tiro", 16, col_light)

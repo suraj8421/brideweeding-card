@@ -38,8 +38,8 @@ def get_marathi_data():
     
     return {
         "invocation": invocation or "॥ श्री गणेशाय नमः ॥",
-        "bride": bride or "चि.सौ.कां. सायली",
-        "groom": groom or "चि. सुयोग",
+        "bride": bride or "चि.सौ.का. पूनम",
+        "groom": groom or "चि. जीवन",
         "day": wedding_day or "रविवार",
         "date": wedding_date or "२६ जुलै २०२६",
         "time": wedding_time or "दुपारी ०२:५१ वाजता",

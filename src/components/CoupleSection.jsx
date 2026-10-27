@@ -28,7 +28,8 @@ export const CoupleSection = () => {
                 src={imageSrc}
                 alt={name}
                 onError={() => setError(true)}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: isBride ? "center top" : "center" }}
               />
             ) : (
               // Premium Coming Soon Placeholder

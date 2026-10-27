@@ -60,13 +60,15 @@ export const Venue = () => {
           </div>
 
           {/* Large Navigation Button */}
-          <button
-            onClick={handleOpenMaps}
-            className="mt-6 flex items-center gap-2 py-3 px-8 rounded-full bg-gradient-to-r from-gold-dark via-gold-med to-gold-dark text-primary-darkmaroon font-cinzel text-xs font-bold tracking-widest uppercase hover:scale-105 active:scale-95 shadow-[0_4px_15px_rgba(212,175,55,0.4)] transition-all duration-300 cursor-pointer"
+          <a
+            href={weddingData.venue.googleMapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 py-3 px-8 rounded-full bg-gradient-to-r from-gold-dark via-gold-med to-gold-dark text-primary-darkmaroon font-cinzel text-xs font-bold tracking-widest uppercase hover:scale-105 active:scale-95 shadow-[0_4px_15px_rgba(212,175,55,0.4)] transition-all duration-300 cursor-pointer text-center"
           >
             <FaLocationArrow className="text-xs" />
             गुगल मॅपवर लग्न स्थळ पहा
-          </button>
+          </a>
         </motion.div>
 
       </div>
