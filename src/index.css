@@ -149,14 +149,15 @@
   background: linear-gradient(#AA771C, #D4AF37, #AA771C);
 }
 
-/* Smooth Scroll config */
+/* Smooth Scroll config (handled by Lenis for silky 60/120fps physics) */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Lenis smooth scroll optimization classes */
 html.lenis, html.lenis body {
   height: auto;
+  scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth {

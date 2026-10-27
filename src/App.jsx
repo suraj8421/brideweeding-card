@@ -16,6 +16,7 @@ import { FloatingActions } from "./components/FloatingActions";
 import { PetalRain } from "./animations/PetalRain";
 import { Fireflies } from "./animations/Fireflies";
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 import { useAudio } from "./hooks/useAudio";
 
@@ -41,11 +42,15 @@ function App() {
     if (phase !== "main") return;
 
     const lenis = new Lenis({
-      duration: 1.2,
+      lerp: 0.085, // Smooth inertial physics
+      duration: 1.4, // Luxurious scroll transition
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       gestureOrientation: "vertical",
-      normalizeWheel: true,
+      orientation: "vertical",
       smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.6,
+      infinite: false,
     });
 
     let animationFrameId;
@@ -72,7 +77,7 @@ function App() {
 
     let animationFrameId;
     let startDelayTimer;
-    const pixelsPerSecond = 130; // Increased cinematic scrolling speed (from 75)
+    const pixelsPerSecond = 85; // Luxurious, steady cinematic reading pace
 
     const startAutoScroll = () => {
       if (window.lenis) {
@@ -121,9 +126,8 @@ function App() {
         cancelAnimationFrame(animationFrameId);
       }
       if (window.lenis) {
-        // Stop current Lenis animation instantly
-        window.lenis.stop();
-        window.lenis.start();
+        // Smoothly cancel programmatic scroll without pausing or interrupting the Lenis RAF loop
+        window.lenis.scrollTo(window.lenis.scroll, { immediate: true });
       }
     };
 
