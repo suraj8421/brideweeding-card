@@ -85,6 +85,15 @@ export const CoupleSection = () => {
       <div className="max-w-5xl w-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 z-20">
         
         {/* Groom Card */}
+          <ProfileFrame
+          isBride={true}
+          imageSrc={weddingData.bride.photo}
+          name={weddingData.bride.name}
+          education={weddingData.bride.education}
+          profession={weddingData.bride.profession}
+          hasError={brideImgError}
+          setError={setBrideImgError}
+        />
         <ProfileFrame
           isBride={false}
           imageSrc={weddingData.groom.photo}
@@ -176,7 +185,7 @@ export const CoupleSection = () => {
         </div>
 
         {/* Bride Card */}
-        <ProfileFrame
+        {/* <ProfileFrame
           isBride={true}
           imageSrc={weddingData.bride.photo}
           name={weddingData.bride.name}
@@ -184,7 +193,7 @@ export const CoupleSection = () => {
           profession={weddingData.bride.profession}
           hasError={brideImgError}
           setError={setBrideImgError}
-        />
+        /> */}
 
       </div>
     </section>

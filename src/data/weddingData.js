@@ -82,7 +82,7 @@ export const weddingData = {
       dateEng: "Saturday, November 14, 2026",
       // time: "सकाळी १०:०० वाजता",
       // timeEng: "10:00 AM",
-      venue: "वराचे घरी, मु. पो. मोहरे, ता. पन्हाळा, जि. कोल्हापूर (Venue)",
+      venue: "वधूचे  घरी , मु. पो. सांगलीवाडी, ता. मिरज, जि. सांगली (Venue)",
       icon: "haldi", // Custom identifier for icon mapping
     },
     {

@@ -143,9 +143,9 @@ export const OpeningEnvelope = ({ onComplete, onOpen }) => {
                 <div className="mt-2 text-gold-med text-2xl">🔱</div>
 
                 <div className="space-y-2 my-auto">
-                  <span className="font-yatra text-gold-gradient text-3xl block">जीवन</span>
-                  <span className="text-gold-light text-xs tracking-widest block uppercase font-yatra">आणि</span>
                   <span className="font-yatra text-gold-gradient text-3xl block">पूनम</span>
+                  <span className="text-gold-light text-xs tracking-widest block uppercase font-yatra">आणि</span>
+                  <span className="font-yatra text-gold-gradient text-3xl block">जीवन</span>
                 </div>
 
                 <div className="space-y-1 mb-2">
